@@ -57,12 +57,14 @@ export const ComicsProvider: React.FC<IComicsProviderProps> = ({
       setComics(response.data.data.results);
       setTotalPages(Math.ceil(response.data.data.total / limit));
     } catch {
+      // eslint-disable-next-line no-console
       console.log('deu erro');
     } finally {
       setIsLoading(false);
     }
   }, []);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const fetchComic = useCallback(async (id: number, search?: string) => {
     setIsLoading(true);
     setError(null);

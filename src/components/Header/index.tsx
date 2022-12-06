@@ -1,17 +1,14 @@
 import { memo } from 'react';
 
-import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import bannermarvel from 'assets/marvel2.jpg';
 
 import LogoContainer from 'components/LogoContainer';
-import MainBan from 'components/MainBan';
-import MainBanner from 'components/MainBanner';
 
-import { BannerContainer, Title } from './styles';
+import { Title } from './styles';
 
-const noneHeader = () => (
+const noneHeader: React.FC = () => (
   <header>
     <LogoContainer />
     <img src={bannermarvel} alt="bannermarvel" />
