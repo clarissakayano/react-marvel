@@ -15,7 +15,7 @@ import useTitle from 'hooks/useTitle';
 import { BgColor, BgContainer } from './styles';
 
 const Character: React.FC = () => {
-  const { character, isLoading, error, fetchCharacter } = useCharacters();
+  const { character, isLoading, fetchCharacter } = useCharacters();
   const setTitle = useTitle();
   const { id } = useParams();
 

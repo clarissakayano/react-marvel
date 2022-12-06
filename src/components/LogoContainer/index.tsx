@@ -1,8 +1,5 @@
 import { memo } from 'react';
 
-import { Col, Container, Row } from 'react-bootstrap';
-
-import bannermarvel from 'assets/banner.jpg';
 import marvel from 'assets/marvel1.jpg';
 
 import Nav from 'components/Nav';
