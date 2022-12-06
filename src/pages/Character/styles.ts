@@ -21,8 +21,8 @@ export const Container = styled.div`
     z-index: -1;
 
     background::after {
-      content:'';
-       filter: blur(41px);
+      content: '';
+      filter: blur(41px);
     }
 
     img::before {
@@ -30,11 +30,8 @@ export const Container = styled.div`
       height: 100%;
       width: 100%;
     }
-}
-
-
+  }
 `;
-
 
 export const BgContainer = styled.div`
 
@@ -77,4 +74,3 @@ export const CharacterName = styled.h1`
   text-shadow: black 0.1em 0.1em 0.2em;
   color: white;
 `;
-

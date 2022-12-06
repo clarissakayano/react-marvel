@@ -81,7 +81,7 @@ const Home: React.FC = () => {
           {isLoading && <p>Loading...</p>}
           {error && <p style={{ color: 'red' }}>{error}</p>}
           {!isLoading && !error && (
-            <Row className="row-cols-1 row-cols-sm-2 row-cols-md-4 img-fluid g-4 justify-content-center mb-5 img-fluid">
+            <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mb-5 img-fluid">
               {characters.map((character) => (
                 <Col className="d-flex  g-3" key={character.id}>
                   <CardCh character={character} />
@@ -90,18 +90,17 @@ const Home: React.FC = () => {
               {!isLoading && !error && characters.length === 0 && (
                 <p>Nenhum resultado encontrado</p>
               )}
-
-              {totalPages > 1 && (
-                <Pagination
-                  className="mt-3 flex-wrap"
-                  forcePage={currentPage - 1}
-                  nextLabel=">"
-                  onPageChange={(p) => handlePageChange(p.selected + 1)}
-                  pageCount={totalPages}
-                  previousLabel="<"
-                />
-              )}
             </Row>
+          )}
+          {totalPages > 1 && (
+            <Pagination
+              className="mt-3 flex-wrap"
+              forcePage={currentPage - 1}
+              nextLabel=">"
+              onPageChange={(p) => handlePageChange(p.selected + 1)}
+              pageCount={totalPages}
+              previousLabel="<"
+            />
           )}
         </div>
       </Container>

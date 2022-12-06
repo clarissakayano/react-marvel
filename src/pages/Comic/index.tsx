@@ -48,7 +48,13 @@ const Comic: React.FC = () => {
               <BgContainer>
                 <div className="row p-4">
                   <div className="col">
-                    <img src={getImageUrl(comic.thumbnail)} alt={comic.title} />
+                    <div>
+                      <img
+                        className="img-fluid"
+                        src={getImageUrl(comic.thumbnail)}
+                        alt={comic.title}
+                      />
+                    </div>
                   </div>
                   <div className="col">
                     <p>{comic.description}</p>

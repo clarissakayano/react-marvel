@@ -4,7 +4,6 @@ export const LogoBg = styled.div`
   background-color: black;
   color: white;
 
-
   li {
     list-style: none;
   }

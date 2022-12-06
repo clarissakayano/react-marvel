@@ -45,6 +45,7 @@ const Character: React.FC = () => {
                 <div className="row p-4">
                   <div className="col">
                     <img
+                      className="img-fluid"
                       src={getImageUrl(character.thumbnail)}
                       alt={character.name}
                     />
