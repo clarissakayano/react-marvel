@@ -1,7 +1,7 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useEffect } from 'react';
 
 import { Button, Container } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { useComics } from 'context/ComicsContext';
 
@@ -20,7 +20,7 @@ const Comic: React.FC = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    if (id) fetchComic(id);
+    if (id) fetchComic(Number(id));
   }, [fetchComic, id]);
 
   useEffect(() => {
