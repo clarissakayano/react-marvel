@@ -4,9 +4,9 @@ interface ICoverProps {
   coverimage: string;
 }
 
-export const Container = styled.div`
+export const Container = styled.div<ICoverProps>`
   display: flex;
-  background: ${({ coverimage }) => `${coverimage}`};
+  background: ${({ coverimage }) => `url(${coverimage})`};
   .bgcolor {
     background: rgba(0, 0, 0, 0.7);
   }
@@ -34,25 +34,24 @@ export const Container = styled.div`
 `;
 
 export const BgContainer = styled.div`
-
   background-image: cover;
 
-.background {
-  position: absolute;
-  top: -40px;
-  left: -40px;
-  height: 100%;
-  width: 100%;
-  width: calc(100% + 80px);
-  height: calc(100% + 80px);
-  z-index: -1;
-
-
-  .blur {
-    object-fit: cover;
+  .background {
+    position: absolute;
+    top: -40px;
+    left: -40px;
     height: 100%;
     width: 100%;
-    filter: blur(20px);
+    width: calc(100% + 80px);
+    height: calc(100% + 80px);
+    z-index: -1;
+
+    .blur {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      filter: blur(20px);
+    }
   }
 `;
 
