@@ -12,10 +12,10 @@ import { getImageUrl } from 'helpers';
 
 import useTitle from 'hooks/useTitle';
 
-import { BgColor, BgContainer } from './styles';
+import { BgColor, BgContainer, Cont } from './styles';
 
 const Character: React.FC = () => {
-  const { character, isLoading, fetchCharacter } = useCharacters();
+  const { character, isLoading, error, fetchCharacter } = useCharacters();
   const setTitle = useTitle();
   const { id } = useParams();
 
@@ -28,51 +28,57 @@ const Character: React.FC = () => {
   });
 
   return (
-    <Container>
-      <header>
+    <Cont>
+      <header className="mb-5">
         <LogoContainer />
       </header>
-      <BgColor className="mt-3">
-        <h1 className="d-flex justify-content-center">
-          {character?.name ?? 'Loading...'}
-        </h1>
-        {isLoading && <p>Loading...</p>}
-        {!isLoading && character && (
-          <div className="d-column justify-content-center mt-3">
-            <p className="d-flex justify-content-center">ID: {character.id}</p>
-            <div className="d-flex row-cols-1 img-fluid justify-content-center">
-              <BgContainer>
-                <div className="row p-4">
-                  <div className="col">
-                    <img
-                      className="img-fluid"
-                      src={getImageUrl(character.thumbnail)}
-                      alt={character.name}
-                    />
-                  </div>
-                  <div className="col">
-                    <p>{character.description}</p>
-                  </div>
-                  <div className="background">
-                    <img
-                      className="blur"
-                      src={getImageUrl(character.thumbnail)}
-                      alt={character.name}
-                    />
-                  </div>
+      <main>
+        <Container>
+          <BgColor className="mt-5">
+            <h1 className="d-flex justify-content-center">
+              {character?.name ?? 'Loading...'}
+            </h1>
+            {isLoading && <p>Loading...</p>}
+            {!isLoading && character && (
+              <div className="d-column justify-content-center mt-3">
+                <p className="d-flex justify-content-center">
+                  ID: {character.id}
+                </p>
+                <div className="d-flex row-cols-1 img-fluid justify-content-center">
+                  <BgContainer>
+                    <div className="row p-4">
+                      <div className="col">
+                        <img
+                          className="img-fluid"
+                          src={getImageUrl(character.thumbnail)}
+                          alt={character.name}
+                        />
+                      </div>
+                      <div className="col">
+                        <p>{character.description}</p>
+                      </div>
+                      <div className="background">
+                        <img
+                          className="blur img-fluid"
+                          src={getImageUrl(character.thumbnail)}
+                          alt={character.name}
+                        />
+                      </div>
+                    </div>
+                  </BgContainer>
                 </div>
-              </BgContainer>
+              </div>
+            )}
+            <div className="d-flex justify-content-center py-3">
+              <Button href="/" variant="danger">
+                Back
+              </Button>
             </div>
-          </div>
-        )}
-        <div className="d-flex justify-content-center py-3">
-          <Button href="/" variant="danger">
-            Back
-          </Button>
-        </div>
-      </BgColor>
+          </BgColor>
+        </Container>
+      </main>
       <Footer />
-    </Container>
+    </Cont>
   );
 };
 

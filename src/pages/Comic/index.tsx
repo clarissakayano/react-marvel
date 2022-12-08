@@ -28,57 +28,61 @@ const Comic: React.FC = () => {
   });
 
   return (
-    <Container>
+    <>
       <header>
         <LogoContainer />
       </header>
-      <BgColor className="mt-3">
-        <div>
-          <h1 className="d-flex mt-2 justify-content-center row row-col-sm py-3">
-            {comic?.title ?? 'Loading...'}
-          </h1>
-        </div>
+      <main>
+        <Container>
+          <BgColor className="mt-3">
+            <div>
+              <h1 className="d-flex mt-2 justify-content-center row row-col-sm py-3">
+                {comic?.title ?? 'Loading...'}
+              </h1>
+            </div>
 
-        {isLoading && <p>Loading...</p>}
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {!isLoading && !error && comic && (
-          <div className="d-column justify-content-center">
-            <p className="d-flex justify-content-center">ID: {comic.id}</p>
-            <div className="d-flex row-cols-1 img-fluid justify-content-center">
-              <BgContainer>
-                <div className="row p-4">
-                  <div className="col">
-                    <div>
+            {isLoading && <p>Loading...</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {!isLoading && !error && comic && (
+              <div className="d-column justify-content-center">
+                <p className="d-flex justify-content-center">ID: {comic.id}</p>
+                <div className="d-flex row-cols-1 img-fluid justify-content-center">
+                  <BgContainer>
+                    <div className="row p-4">
+                      <div className="col">
+                        <div>
+                          <img
+                            className="img-fluid"
+                            src={getImageUrl(comic.thumbnail)}
+                            alt={comic.title}
+                          />
+                        </div>
+                      </div>
+                      <div className="col">
+                        <p>{comic.description}</p>
+                      </div>
+                    </div>
+                    <div className="background">
                       <img
-                        className="img-fluid"
+                        className="blur"
                         src={getImageUrl(comic.thumbnail)}
                         alt={comic.title}
                       />
                     </div>
-                  </div>
-                  <div className="col">
-                    <p>{comic.description}</p>
-                  </div>
+                  </BgContainer>
                 </div>
-                <div className="background">
-                  <img
-                    className="blur"
-                    src={getImageUrl(comic.thumbnail)}
-                    alt={comic.title}
-                  />
-                </div>
-              </BgContainer>
+              </div>
+            )}
+            <div className="d-flex justify-content-center mt-5 py-3">
+              <Button href="/" variant="danger">
+                Back
+              </Button>
             </div>
-          </div>
-        )}
-        <div className="d-flex justify-content-center mt-5 py-3">
-          <Button href="/" variant="danger">
-            Back
-          </Button>
-        </div>
-      </BgColor>
+          </BgColor>
+        </Container>
+      </main>
       <Footer />
-    </Container>
+    </>
   );
 };
 

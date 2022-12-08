@@ -6,12 +6,22 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
-body {
+    html, body, #root{
     font-family: 'Roboto Condensed', sans-serif;
+    min-height: 100vh;
+
+
+    #root{
+   }
 }
 
+
+   main {
+    min-height: 100vh;
+   }
 //bootstrap overrides
 .card {
     background-color:black;

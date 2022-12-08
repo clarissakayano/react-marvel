@@ -73,3 +73,10 @@ export const CharacterName = styled.h1`
   text-shadow: black 0.1em 0.1em 0.2em;
   color: white;
 `;
+
+export const Cont = styled.section`
+  flex: 1;
+  min-height: 100hv;
+  display: flex;
+  flex-direction: column;
+`;
