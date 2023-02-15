@@ -5,7 +5,7 @@ import LogoFooter from 'components/LogoContainer copy';
 import { BgFooter } from './styles';
 
 const Footer: React.FC = () => (
-  <BgFooter>
+  <BgFooter className="mt-5">
     <LogoFooter />
   </BgFooter>
 );

@@ -34,7 +34,7 @@ const Character: React.FC = () => {
       </header>
       <main>
         <Container>
-          <BgColor className="mt-5">
+          <BgColor className="mt-5 py-3">
             <h1 className="d-flex justify-content-center">
               {character?.name ?? 'Loading...'}
             </h1>
@@ -44,9 +44,9 @@ const Character: React.FC = () => {
                 <p className="d-flex justify-content-center">
                   ID: {character.id}
                 </p>
-                <div className="d-flex row-cols-1 img-fluid justify-content-center">
+                <div className="d-flex img-fluid justify-content-center">
                   <BgContainer>
-                    <div className="row p-4">
+                    <div className="row row-cols-1 row-cols-md-2 p-4">
                       <div className="col">
                         <img
                           className="img-fluid"
@@ -55,7 +55,7 @@ const Character: React.FC = () => {
                         />
                       </div>
                       <div className="col">
-                        <p>{character.description}</p>
+                        <p className="py-3">{character.description}</p>
                       </div>
                       <div className="background">
                         <img

@@ -15,7 +15,8 @@ export const BgColor = styled.div`
 `;
 
 export const BgContainer = styled.div`
-  background-image: cover;
+  background-image: contain;
+  margin-top: 15px;
 
   .background {
     position: absolute;
@@ -35,3 +36,4 @@ export const BgContainer = styled.div`
     background-image: cover;
   }
 `;
+export const BgImg = styled.div``;
