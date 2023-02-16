@@ -82,32 +82,33 @@ const Home: React.FC = () => {
                   </ButtonClear>
                 )}
               </div>
-
-              {isLoading && <p>Loading...</p>}
-              {error && <p style={{ color: 'red' }}>{error}</p>}
-              {!isLoading && !error && (
-                <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mt-3 mb-5 ">
-                  {characters.map((character) => (
-                    <Col className="d-flex g-3" key={character.id}>
-                      <CardCh character={character} />
-                    </Col>
-                  ))}
-                  {!isLoading && !error && characters.length === 0 && (
-                    <p>Nenhum resultado encontrado</p>
-                  )}
-                </Row>
-              )}
-              {totalPages > 1 && (
-                <Pagination
-                  className=" mt-3 d-flex justify-content-center flex-wrap"
-                  forcePage={currentPage - 1}
-                  nextLabel=">"
-                  onPageChange={(p) => handlePageChange(p.selected + 1)}
-                  pageCount={totalPages}
-                  previousLabel="<"
-                />
-              )}
             </div>
+          </Container>
+          <Container>
+            {isLoading && <p>Loading...</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {!isLoading && !error && (
+              <Row className="row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center mt-3 mb-5 ">
+                {characters.map((character) => (
+                  <Col className="d-flex" key={character.id}>
+                    <CardCh character={character} />
+                  </Col>
+                ))}
+                {!isLoading && !error && characters.length === 0 && (
+                  <p>Nenhum resultado encontrado</p>
+                )}
+              </Row>
+            )}
+            {totalPages > 1 && (
+              <Pagination
+                className=" mt-3 d-flex justify-content-center flex-wrap"
+                forcePage={currentPage - 1}
+                nextLabel=">"
+                onPageChange={(p) => handlePageChange(p.selected + 1)}
+                pageCount={totalPages}
+                previousLabel="<"
+              />
+            )}
           </Container>
         </main>
         <Footer />
