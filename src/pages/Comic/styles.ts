@@ -14,26 +14,15 @@ export const BgColor = styled.div`
   }
 `;
 
-export const BgContainer = styled.div`
-  background-image: contain;
-  margin-top: 15px;
+export const BgContainer = styled.div``;
 
-  .background {
-    position: absolute;
-    top: -40px;
-    left: -40px;
-    height: 100%;
-    width: 100%;
-    width: calc(100% + 80px);
-    height: calc(100% + 80px);
-    z-index: -1;
-  }
-  .blur {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    filter: blur(20px);
-    background-image: cover;
-  }
+interface ICoverProps {
+  coverimage: string;
+}
+export const BgImage = styled.div<ICoverProps>`
+  background: ${({ coverimage }) => `rgba(0, 0, 0, 0.7)url(${coverimage} ) `};
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
 `;
-export const BgImg = styled.div``;

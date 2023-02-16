@@ -56,11 +56,10 @@ export const BgContainer = styled.div`
 `;
 
 export const BgImg = styled.section<ICoverProps>`
-  background: ${({ coverimage }) => `url(${coverimage})`};
-  background-size: cover;
+  background: ${({ coverimage }) => `rgba(0, 0, 0, 0.8)url(${coverimage})`};
   background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
-  height: 400px;
   background-blend-mode: darken;
 `;
 
@@ -74,9 +73,8 @@ export const CharacterName = styled.h1`
   color: white;
 `;
 
-export const Cont = styled.section`
-  flex: 1;
-  min-height: 100hv;
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 `;

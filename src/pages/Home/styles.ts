@@ -50,8 +50,24 @@ export const Title = styled.h1`
   font-weight: 700;
 `;
 
-export const Button1 = styled.button`
-  background-color: red;
+export const ButtonSearch = styled.button`
+  background-color: transparent;
   color: white;
   padding: 2px;
+  border: none;
+`;
+export const ButtonClear = styled.button`
+  background-color: transparent;
+  color: white;
+  padding: 2px;
+  border-radius: 10%;
+  :hover {
+    background-color: red;
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `;

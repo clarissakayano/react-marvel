@@ -12,7 +12,9 @@ import { getImageUrl } from 'helpers';
 
 import useTitle from 'hooks/useTitle';
 
-import { BgColor, BgContainer } from './styles';
+import { Wrapper } from 'pages/Character/styles';
+
+import { BgColor, BgContainer, BgImage } from './styles';
 
 const Comic: React.FC = () => {
   const { comic, fetchComic, error, isLoading } = useComics();
@@ -28,22 +30,25 @@ const Comic: React.FC = () => {
   });
 
   return (
-    <>
+    <Wrapper>
       <header>
         <LogoContainer />
       </header>
-      <main>
-        <Container>
-          <BgColor className="mt-3 mb-3">
-            <div>
-              <h1 className="d-flex mt-2 px-4 justify-content-center row row-col-sm py-3">
-                {comic?.title ?? 'Loading...'}
-              </h1>
-            </div>
+      {isLoading && <p className="text-center">Loading...</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {!isLoading && !error && comic && (
+        <BgImage
+          coverimage={getImageUrl(comic.thumbnail)}
+          className="d-flex flex-column"
+        >
+          <Container className="mt-5 mb-5">
+            <BgColor className="mt-5 mb-5">
+              <div>
+                <h1 className="d-flex justify-content-center mt-2 px-4 py-3">
+                  {comic?.title ?? 'Loading...'}
+                </h1>
+              </div>
 
-            {isLoading && <p>Loading...</p>}
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {!isLoading && !error && comic && (
               <div className="d-column justify-content-center">
                 <p className="d-flex justify-content-center">ID: {comic.id}</p>
                 <div className="d-flex row-cols-1 img-fluid justify-content-center">
@@ -59,24 +64,24 @@ const Comic: React.FC = () => {
                           />
                         </div>
                       </div>
-                      <div className="col">
+                      <div className="col mt-3">
                         <p>{comic.description}</p>
                       </div>
                     </div>
                   </BgContainer>
                 </div>
               </div>
-            )}
-            <div className="d-flex justify-content-center mt-5 py-3">
-              <Button href="/comics" variant="danger">
-                Back
-              </Button>
-            </div>
-          </BgColor>
-        </Container>
-      </main>
+              <div className="d-flex justify-content-center mt-5 py-5">
+                <Button href="/comics" variant="danger">
+                  Back
+                </Button>
+              </div>
+            </BgColor>
+          </Container>
+        </BgImage>
+      )}
       <Footer />
-    </>
+    </Wrapper>
   );
 };
 

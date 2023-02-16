@@ -74,7 +74,7 @@ const Comics: React.FC = () => {
               )}
             </div>
 
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <p className="text-center">Loading...</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
             {!isLoading && !error && (
               <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 img-fluid g-4 justify-content-center mb-5 img-fluid">

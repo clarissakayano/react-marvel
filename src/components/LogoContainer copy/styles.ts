@@ -5,7 +5,6 @@ export const LogoBg = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
-  margin-top: auto;
 
   .container {
     flex: 1;

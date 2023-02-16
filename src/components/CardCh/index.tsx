@@ -16,7 +16,7 @@ interface ICardChProps {
 }
 const CardCh: React.FC<ICardChProps> = ({ character }) => {
   return (
-    <Card className="w-100 img-fluid effect">
+    <Card className="w-100 effectcard img-fluid color effect">
       <Link to={`/characters/${character.id}/${character.name}`}>
         <Cover
           className="px-4 zoom"

@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import { MdOutlineSearch } from 'react-icons/md';
 
 import background from 'assets/quadrinhos.jpg';
 
@@ -14,7 +15,7 @@ import useTitle from 'hooks/useTitle';
 
 import { Pagination } from 'styles/Pagination';
 
-import { BgImage, Title } from './styles';
+import { BgImage, ButtonClear, ButtonSearch, Title, Wrapper } from './styles';
 
 const Home: React.FC = () => {
   const [search, setSearch] = useState('');
@@ -49,65 +50,69 @@ const Home: React.FC = () => {
   });
 
   return (
-    <BgImage>
-      <img className="imagebg" src={background} alt="background" />
-      <header>
-        <LogoContainer />
-      </header>
-      <main>
-        <Container className="d-flex justify-content-center px-4">
-          <div>
-            <Title className="d-flex justify-content-center">Characters</Title>
-            <div className="d-flex mb-3">
-              <input
-                type="text"
-                placeholder="Buscar"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <Button variant="danger" type="button" onClick={handleSearch}>
-                Buscar
-              </Button>
-              {search.length > 0 && (
-                <Button
-                  className="mx-3"
-                  type="button"
-                  onClick={handleClearSearch}
-                >
-                  Limpar
-                </Button>
+    <Wrapper>
+      <BgImage>
+        <img className="imagebg" src={background} alt="background" />
+        <header>
+          <LogoContainer />
+        </header>
+        <main>
+          <Container className="d-flex justify-content-center px-4">
+            <div>
+              <Title className="d-flex justify-content-center">
+                Characters
+              </Title>
+              <div className="d-flex mb-3">
+                <input
+                  type="text"
+                  placeholder="Buscar"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <ButtonSearch id="search" type="button" onClick={handleSearch}>
+                  <MdOutlineSearch />
+                </ButtonSearch>
+                {search.length > 0 && (
+                  <ButtonClear
+                    id="color"
+                    type="button"
+                    onClick={handleClearSearch}
+                  >
+                    Clear
+                  </ButtonClear>
+                )}
+              </div>
+
+              {isLoading && <p>Loading...</p>}
+              {error && <p style={{ color: 'red' }}>{error}</p>}
+              {!isLoading && !error && (
+                <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mt-3 mb-5 ">
+                  {characters.map((character) => (
+                    <Col className="d-flex g-3" key={character.id}>
+                      <CardCh character={character} />
+                    </Col>
+                  ))}
+                  {!isLoading && !error && characters.length === 0 && (
+                    <p>Nenhum resultado encontrado</p>
+                  )}
+                </Row>
+              )}
+              {totalPages > 1 && (
+                <Pagination
+                  className=" mt-3 d-flex justify-content-center flex-wrap"
+                  forcePage={currentPage - 1}
+                  nextLabel=">"
+                  onPageChange={(p) => handlePageChange(p.selected + 1)}
+                  pageCount={totalPages}
+                  previousLabel="<"
+                />
               )}
             </div>
-
-            {isLoading && <p>Loading...</p>}
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {!isLoading && !error && (
-              <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mb-5 ">
-                {characters.map((character) => (
-                  <Col className="d-flex  g-3" key={character.id}>
-                    <CardCh character={character} />
-                  </Col>
-                ))}
-                {!isLoading && !error && characters.length === 0 && (
-                  <p>Nenhum resultado encontrado</p>
-                )}
-              </Row>
-            )}
-            {totalPages > 1 && (
-              <Pagination
-                className=" mt-3 d-flex justify-content-center flex-wrap"
-                forcePage={currentPage - 1}
-                nextLabel=">"
-                onPageChange={(p) => handlePageChange(p.selected + 1)}
-                pageCount={totalPages}
-                previousLabel="<"
-              />
-            )}
-          </div>
-        </Container>
-      </main>
-      <Footer />
-    </BgImage>
+          </Container>
+        </main>
+        <Footer />
+      </BgImage>
+    </Wrapper>
   );
 };
 
