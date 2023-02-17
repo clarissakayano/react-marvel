@@ -10,13 +10,13 @@ import { LogoBg } from './styles';
 const LogoFooter: React.FC = () => (
   <LogoBg>
     <Container>
-      <Row className="row-cols-1 row-cols-md-2">
-        <Col className="d-flex mt-3 ">
+      <Row className="row-cols-1 row-cols-md-3">
+        <Col className="d-flex justify-content-center mt-3 ">
           <Link to="/" className="px-4">
             <img src={logomarvel} alt="logomarvel" className="img-fluid mb-3" />
           </Link>
         </Col>
-        <Col className="d-flex align-items-center">
+        <Col className="d-flex align-items-center justify-content-center">
           <a
             href="https://www.linkedin.com/in/clarissa-a-kayano-37a011259/"
             target="blank"
