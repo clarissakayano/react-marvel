@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import { MdOutlineSearch } from 'react-icons/md';
 
 import background from 'assets/quadrinhos.jpg';
 
@@ -14,7 +15,7 @@ import useTitle from 'hooks/useTitle';
 
 import { Pagination } from 'styles/Pagination';
 
-import { BgImage, Wrapper } from './styles';
+import { BgImage, ButtonClear, ButtonSearch, Title, Wrapper } from './styles';
 
 const Comics: React.FC = () => {
   const [search, setSearch] = useState('');
@@ -50,34 +51,34 @@ const Comics: React.FC = () => {
           <LogoContainer />
         </header>
         <main>
-          <Container>
-            <h1 className="d-flex justify-content-center">Comics</h1>
-            <div className="d-flex mb-3">
+          <Container className="d-flex justify-content-center">
+            <div>
+              <Title className="d-flex justify-content-center">Comics</Title>
+            </div>
+          </Container>
+          <Container className="d-flex justify-content-center justify-content-sm-start">
+            <div className="d-flex">
               <input
                 type="text"
                 placeholder="Buscar"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <Button variant="danger" type="button" onClick={handleSearch}>
-                Buscar
-              </Button>
-              {search.length > 0 && (
-                <Button
-                  className="mx-3"
-                  variant="primary"
-                  type="button"
-                  onClick={handleClearSearch}
-                >
-                  Limpar
-                </Button>
-              )}
             </div>
-
+            <ButtonSearch id="search" type="button" onClick={handleSearch}>
+              <MdOutlineSearch />
+            </ButtonSearch>
+            {search.length > 0 && (
+              <ButtonClear id="color" type="button" onClick={handleClearSearch}>
+                Clear
+              </ButtonClear>
+            )}
+          </Container>
+          <Container>
             {isLoading && <p className="text-center">Loading...</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
             {!isLoading && !error && (
-              <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 img-fluid g-4 justify-content-center mb-5 img-fluid">
+              <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 img-fluid g-4 justify-content-center mb-5 img-fluid mt-3">
                 {comics.map((comic) => (
                   <Col className="d-flex " key={comic.id}>
                     <ComicCard comic={comic} />

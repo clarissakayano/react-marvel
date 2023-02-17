@@ -61,6 +61,7 @@ export const ButtonClear = styled.button`
   color: white;
   padding: 2px;
   border-radius: 10%;
+  margin-left: 15px;
   :hover {
     background-color: red;
   }

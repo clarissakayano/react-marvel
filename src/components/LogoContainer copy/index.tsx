@@ -10,16 +10,20 @@ import { LogoBg } from './styles';
 const LogoFooter: React.FC = () => (
   <LogoBg>
     <Container>
-      <Row className="row-col">
-        <Col className="d-flex mt-3">
+      <Row className="row-cols-1 row-cols-md-2">
+        <Col className="d-flex mt-3 ">
           <Link to="/" className="px-4">
-            <img src={logomarvel} alt="logomarvel" className="img-fluid" />
+            <img src={logomarvel} alt="logomarvel" className="img-fluid mb-3" />
           </Link>
-          <ul>
-            <Link to="/">About Marvel</Link>
-            <li>Films</li>
-            <li>Help/Faqs</li>
-          </ul>
+        </Col>
+        <Col className="d-flex align-items-center">
+          <a
+            href="https://www.linkedin.com/in/clarissa-a-kayano-37a011259/"
+            target="blank"
+          >
+            <span className="color">site por </span>
+            <span> Clarissa A. Kayano</span>
+          </a>
         </Col>
       </Row>
     </Container>

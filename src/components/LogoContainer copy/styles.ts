@@ -21,6 +21,10 @@ export const LogoBg = styled.div`
     list-style: none;
   }
 
+  .color {
+    color: #9999;
+  }
+
   .card:hover {
     a:link {
       text-decoration: none;

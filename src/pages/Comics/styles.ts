@@ -19,6 +19,28 @@ export const BgImage = styled.div`
   }
 `;
 
+export const Title = styled.h1`
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+`;
+
+export const ButtonSearch = styled.button`
+  background-color: transparent;
+  color: white;
+  padding: 2px;
+  border: none;
+`;
+export const ButtonClear = styled.button`
+  background-color: transparent;
+  color: white;
+  padding: 2px;
+  border-radius: 10%;
+  margin-left: 15px;
+  :hover {
+    background-color: red;
+  }
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;

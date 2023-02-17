@@ -57,32 +57,30 @@ const Home: React.FC = () => {
           <LogoContainer />
         </header>
         <main>
-          <Container className="d-flex justify-content-center px-4">
+          <Container className="d-flex justify-content-center">
             <div>
               <Title className="d-flex justify-content-center">
                 Characters
               </Title>
-              <div className="d-flex mb-3">
-                <input
-                  type="text"
-                  placeholder="Buscar"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-                <ButtonSearch id="search" type="button" onClick={handleSearch}>
-                  <MdOutlineSearch />
-                </ButtonSearch>
-                {search.length > 0 && (
-                  <ButtonClear
-                    id="color"
-                    type="button"
-                    onClick={handleClearSearch}
-                  >
-                    Clear
-                  </ButtonClear>
-                )}
-              </div>
             </div>
+          </Container>
+          <Container className="d-flex justify-content-center justify-content-sm-start">
+            <div className="d-flex">
+              <input
+                type="text"
+                placeholder="Buscar"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+            <ButtonSearch id="search" type="button" onClick={handleSearch}>
+              <MdOutlineSearch />
+            </ButtonSearch>
+            {search.length > 0 && (
+              <ButtonClear id="color" type="button" onClick={handleClearSearch}>
+                Clear
+              </ButtonClear>
+            )}
           </Container>
           <Container>
             {isLoading && <p>Loading...</p>}
