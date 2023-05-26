@@ -12,21 +12,19 @@ import { getImageUrl } from 'helpers';
 
 import useTitle from 'hooks/useTitle';
 
-import { BgColor, BgContainer, BgImg, Wrapper } from './styles';
+import { BgColor, BgImg, Wrapper } from './styles';
 
 const Character: React.FC = () => {
   const { character, isLoading, error, fetchCharacter } = useCharacters();
-  const setTitle = useTitle();
+
   const { id } = useParams();
 
   useEffect(() => {
     if (id) fetchCharacter(id);
   }, [fetchCharacter, id]);
 
-  useEffect(() => {
-    setTitle('Character');
-  });
-
+  const setTitle = useTitle();
+  useEffect(() => setTitle(`${character?.name} | Characters`));
   return (
     <Wrapper>
       <header>

@@ -16,7 +16,7 @@ const LogoFooter: React.FC = () => (
             <img src={logomarvel} alt="logomarvel" className="img-fluid mb-3" />
           </Link>
         </Col>
-        <Col className="d-flex align-items-center justify-content-center">
+        <Col className="d-flex align-items-center justify-content-center mb-3">
           <a
             href="https://www.linkedin.com/in/clarissa-a-kayano-37a011259/"
             target="blank"

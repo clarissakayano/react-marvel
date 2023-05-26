@@ -26,8 +26,11 @@ const Comic: React.FC = () => {
   }, [fetchComic, id]);
 
   useEffect(() => {
-    setTitle('Comic');
-  });
+    if (comic) {
+      const pageTitle = `${comic.title} | Comics | Marvel`;
+      setTitle(pageTitle);
+    }
+  }, [comic, setTitle]);
 
   return (
     <Wrapper>
